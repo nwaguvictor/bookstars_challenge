@@ -1,13 +1,12 @@
 import { model, Schema, Document } from 'mongoose';
-import { ICharacter, IComment } from '../models';
 
 export interface IEpisode extends Document {
   _id?: Schema.Types.ObjectId;
   name?: string;
   releaseDate?: Date;
   episodeCode?: string;
-  comments?: IComment;
-  characters?: ICharacter;
+  comments?: Schema.Types.ObjectId[];
+  characters?: Schema.Types.ObjectId[];
 }
 
 const schema = new Schema<IEpisode>({

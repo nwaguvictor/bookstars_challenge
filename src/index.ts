@@ -1,8 +1,9 @@
-import express, { Request, Response, Application } from 'express';
+import express, { Request, Response, Application, NextFunction } from 'express';
 import http from 'http';
-import cors from 'cors';
-import dotenv from 'dotenv';
-dotenv.config();
+import { routes } from './router';
+import { PORT, db, MONGO_URI } from './config';
+import { errorMiddleware } from './middlewares';
+import { CustomError } from './utils';
 
 const app: Application = express();
 
@@ -12,15 +13,18 @@ app.get('/ping', (req: Request, res: Response) => {
   });
 });
 
-/** Middlewares */
-app.use(cors());
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use('/api', routes);
+
+/** Error Middlewares */
+app.all('*', (req: Request, res: Response, next: NextFunction) => {
+  return next(new CustomError(`Not Found: can not make a ${req.method} to ${req.originalUrl}`, 404));
+});
+app.use(errorMiddleware);
 
 /** Create server */
 const server = http.createServer(app);
-const port = process.env.PORT || 4000;
 
-server.listen(port, () => {
-  console.log(`::> Application running on port: ${port}`);
+server.listen(PORT, async () => {
+  console.log(`😋 Application running on port: ${PORT}`);
+  await db.connect(MONGO_URI);
 });

@@ -1,5 +1,4 @@
 import { model, Schema, Document } from 'mongoose';
-import { IEpisode, ILocation } from '../models';
 
 export interface ICharacter extends Document {
   _id?: Schema.Types.ObjectId;
@@ -8,8 +7,8 @@ export interface ICharacter extends Document {
   status: string;
   stateOfOrigin?: string;
   gender: string;
-  location?: ILocation;
-  episodes?: IEpisode;
+  location?: Schema.Types.ObjectId;
+  episodes?: Schema.Types.ObjectId;
 }
 
 const schema = new Schema<ICharacter>({
@@ -44,7 +43,7 @@ const schema = new Schema<ICharacter>({
     },
   },
   location: {
-    tyep: Schema.Types.ObjectId,
+    type: Schema.Types.ObjectId,
     ref: 'Location',
   },
   episodes: {
