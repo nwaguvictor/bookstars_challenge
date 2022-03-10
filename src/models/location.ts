@@ -3,8 +3,7 @@ import { model, Schema, Document } from 'mongoose';
 export interface ILocation extends Document {
   _id?: Schema.Types.ObjectId;
   name: string;
-  latitude: number;
-  longitude: number;
+  location?: { type: string; coordinates: string[] };
 }
 
 const schema = new Schema<ILocation>({
@@ -12,13 +11,17 @@ const schema = new Schema<ILocation>({
     type: String,
     required: [true, 'location name is required'],
   },
-  longitude: {
-    type: Number,
-    required: [true, 'location longitude is required'],
-  },
-  latitude: {
-    type: Number,
-    required: [true, 'location latitude is required'],
+  location: {
+    type: {
+      type: String,
+      enum: ['Point'],
+      default: 'Point',
+      message: '{VALUE} is not a supported type for location type',
+    },
+    coordinates: {
+      type: [String],
+      required: [true, 'location coordinates are required in the order longitude, latitude'],
+    },
   },
 });
 
