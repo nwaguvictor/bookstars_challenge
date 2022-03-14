@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from 'express';
 import { ObjectId } from 'mongoose';
-import { ICharacter, Character } from '../models';
+import { ICharacter, Character, Episode } from '../models';
 import { CustomError, wrapper } from '../utils';
 
 export interface CharacterRequestBody extends Request {
@@ -41,6 +41,11 @@ class CharacterController {
   deleteCharacter = wrapper(async (req: CharacterRequestBody, res: Response, next: NextFunction) => {
     await Character.findByIdAndDelete({ _id: req.character?._id });
     res.status(200).json({ success: true });
+  });
+
+  getCharacterEpisodes = wrapper(async (req: CharacterRequestBody, res: Response, next: NextFunction) => {
+    const episodes = await Episode.find({ characters: req.character?._id }).select('-characters');
+    res.status(200).json({ success: true, episodes });
   });
 
   foundCharacter = wrapper(async (req: CharacterRequestBody, res: Response, next: NextFunction, val: ObjectId) => {
