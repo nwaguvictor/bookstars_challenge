@@ -9,7 +9,13 @@ export interface CharacterRequestBody extends Request {
 
 class CharacterController {
   getAll = wrapper(async (req: Request, res: Response, next: NextFunction) => {
-    const characters = await Character.find({});
+    let query = Character.find({});
+    if (req.query.sort) {
+      const sortObj = (req.query.sort as string).split(',').join(' ');
+      query = query.sort(sortObj);
+    }
+
+    const characters = await query;
     res.status(200).json({ success: true, characters });
   });
 
