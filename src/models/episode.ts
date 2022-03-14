@@ -1,4 +1,5 @@
 import { model, Schema, Document } from 'mongoose';
+import { codeGenerator } from '../utils';
 
 export interface IEpisode extends Document {
   _id?: Schema.Types.ObjectId;
@@ -20,12 +21,37 @@ const schema = new Schema<IEpisode>({
     type: [Schema.Types.ObjectId],
     ref: 'Character',
   },
-  comments: {
-    type: [Schema.Types.ObjectId],
-    ref: 'Comment',
-  },
+});
+
+schema.virtual('comments', {
+  ref: 'Comment',
+  localField: '_id',
+  foreignField: 'episode',
+});
+
+schema.pre(/^find/, function (next) {
+  this.populate({
+    path: 'characters',
+    select: { location: 0 },
+  });
+
+  this.populate({
+    path: 'comments',
+    select: { comment: 1, ipAddress: 1 },
+  });
+
+  next();
+});
+
+schema.pre('save', function (next) {
+  if (!this.isNew) return next();
+  this.episodeCode = codeGenerator(6);
+
+  next();
 });
 
 schema.set('timestamps', { createdAt: true });
+schema.set('toJSON', { virtuals: true });
+schema.set('toObject', { virtuals: true });
 
 export const Episode = model<IEpisode>('Episode', schema);

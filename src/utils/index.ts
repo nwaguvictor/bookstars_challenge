@@ -1,2 +1,2 @@
 export { CustomError } from './CustomError';
-export { wrapper } from './helper';
+export { wrapper, codeGenerator } from './helper';

@@ -18,8 +18,8 @@ class EpisodeController {
   });
 
   storeEpisode = wrapper(async (req: Request, res: Response, next: NextFunction) => {
-    const { name, episodeCode } = req.body;
-    const episode = await Episode.create({ name, episodeCode });
+    const { name, characters } = req.body;
+    const episode = await Episode.create({ name, characters });
 
     res.status(200).json({ success: true, episode });
   });
