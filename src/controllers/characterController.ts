@@ -9,7 +9,12 @@ export interface CharacterRequestBody extends Request {
 
 class CharacterController {
   getAll = wrapper(async (req: Request, res: Response, next: NextFunction) => {
-    let query = Character.find({});
+    /** Exclude fields not supported for filtering */
+    let queryObj = { ...req.query };
+    ['sort', 'page', 'limit', 'fields'].forEach(q => delete queryObj[q]);
+    let query = Character.find(queryObj);
+
+    /** Sorting */
     if (req.query.sort) {
       const sortObj = (req.query.sort as string).split(',').join(' ');
       query = query.sort(sortObj);
