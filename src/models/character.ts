@@ -24,12 +24,11 @@ const schema = new Schema<ICharacter>({
   },
   status: {
     type: String,
-    required: [true, 'character status is required'],
     enum: {
       values: ['ACTIVE', 'DEAD', 'UNKNOWN'],
-      default: 'ACTIVE',
       message: '{VALUE} is not a supported value for status',
     },
+    default: 'ACTIVE',
   },
   stateOfOrigin: {
     type: String,

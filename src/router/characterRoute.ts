@@ -1,9 +1,10 @@
 import { Router } from 'express';
+import { characterController as ctr } from '../controllers';
 
 const router = Router();
 
-router.route('/characters').get(async (req, res) => {
-  res.send('Hello Character');
-});
+router.param('character', ctr.foundCharacter);
+router.route('/characters').get(ctr.getAll).post(ctr.storeCharacter);
+router.route('/characters/:character').get(ctr.get).patch(ctr.updateCharacter).delete(ctr.deleteCharacter);
 
 export { router as characterRoute };
