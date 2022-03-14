@@ -10,42 +10,29 @@ export interface LocationRequestBody extends Request {
 class LocationController {
   getAll = wrapper(async (req: Request, res: Response, next: NextFunction) => {
     const locations = await Location.find({});
-    res.status(200).json({
-      success: true,
-      data: { locations },
-    });
+    res.status(200).json({ success: true, locations });
   });
 
   get = wrapper(async (req: LocationRequestBody, res: Response, next: NextFunction) => {
-    res.status(200).json({
-      success: true,
-      data: { location: req.location },
-    });
+    res.status(200).json({ success: true, location: req.location });
   });
 
   storeLocation = wrapper(async (req: Request, res: Response, next: NextFunction) => {
     const { name, location } = req.body;
     const newLocation = await Location.create({ name, location });
 
-    res.status(200).json({
-      success: true,
-      data: { location: newLocation },
-    });
+    res.status(200).json({ success: true, location: newLocation });
   });
 
   updateLocation = wrapper(async (req: LocationRequestBody, res: Response, next: NextFunction) => {
     const updatedLocation = await Location.findByIdAndUpdate(req.location?._id, req.body, { new: true });
-    res.status(200).json({
-      success: true,
-      data: { location: updatedLocation },
-    });
+    res.status(200).json({ success: true, location: updatedLocation });
   });
 
   deleteLocation = wrapper(async (req: LocationRequestBody, res: Response, next: NextFunction) => {
     await Location.findByIdAndDelete({ _id: req.location?._id });
     res.status(200).json({
       success: true,
-      data: null,
     });
   });
 

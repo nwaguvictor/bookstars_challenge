@@ -51,6 +51,14 @@ const schema = new Schema<ICharacter>({
   },
 });
 
+schema.pre(/^find/, function (next) {
+  this.populate({
+    path: 'location',
+    select: { location: 1, name: 1 },
+  });
+  next();
+});
+
 schema.set('timestamps', { createdAt: true });
 
 export const Character = model<ICharacter>('Character', schema);
