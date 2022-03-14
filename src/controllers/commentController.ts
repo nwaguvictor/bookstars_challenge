@@ -9,7 +9,7 @@ export interface CommentRequestBody extends Request {
 
 class CommentController {
   getAll = wrapper(async (req: Request, res: Response, next: NextFunction) => {
-    const comments = await Comment.find({});
+    const comments = await Comment.find({}).sort({ createdAt: -1 });
     res.status(200).json({ success: true, comments });
   });
 

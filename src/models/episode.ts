@@ -27,6 +27,7 @@ schema.virtual('comments', {
   ref: 'Comment',
   localField: '_id',
   foreignField: 'episode',
+  count: true,
 });
 
 schema.pre(/^find/, function (next) {

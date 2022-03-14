@@ -9,7 +9,7 @@ export interface EpisodeRequestBody extends Request {
 
 class EpisodeController {
   getAll = wrapper(async (req: Request, res: Response, next: NextFunction) => {
-    const episodes = await Episode.find({});
+    const episodes = await Episode.find({}).sort({ releaseDate: -1 });
     res.status(200).json({ success: true, episodes });
   });
 
