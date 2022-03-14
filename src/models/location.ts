@@ -25,6 +25,7 @@ const schema = new Schema<ILocation>({
   },
 });
 
+schema.index({ location: '2dsphere' });
 schema.set('timestamps', { createdAt: true });
 
 export const Location = model<ILocation>('Location', schema);
