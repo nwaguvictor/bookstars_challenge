@@ -6,6 +6,7 @@ import { CustomError, wrapper } from '../utils';
 export interface LocationRequestBody extends Request {
   location?: ILocation;
 }
+
 class LocationController {
   getAll = wrapper(async (req: Request, res: Response, next: NextFunction) => {
     const locations = await Location.find({});
