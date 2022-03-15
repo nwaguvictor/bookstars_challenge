@@ -18,10 +18,13 @@ class LocationController {
   });
 
   storeLocation = wrapper(async (req: Request, res: Response, next: NextFunction) => {
-    const { name, location } = req.body;
-    const newLocation = await Location.create({ name, location });
+    const { name, coordinates } = req.body;
+    const location = await Location.create({
+      name,
+      location: { coordinates: [parseFloat(coordinates[1]), parseFloat(coordinates[0])] },
+    });
 
-    res.status(200).json({ success: true, location: newLocation });
+    res.status(200).json({ success: true, location });
   });
 
   updateLocation = wrapper(async (req: LocationRequestBody, res: Response, next: NextFunction) => {

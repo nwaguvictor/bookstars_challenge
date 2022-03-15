@@ -1,12 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import { CustomError } from '..//utils';
 
-const mongooseDuplicateError = error => {
-  const [key, value] = Object.entries(error.keyValue)[0];
-  const message = `${key} with value: '${value}' already exist`;
-  return new CustomError(message);
-};
-
 const mongooseValidationError = ({ errors }) => {
   let message;
   for (let key in errors) {
@@ -30,7 +24,7 @@ const mongooseCastError = ({ path, value }) => {
 export const errorMiddleware = (error: any, req: Request, res: Response, next: NextFunction) => {
   let err = { ...error };
 
-  if (error.name === 'MongoError') err = mongooseDuplicateError(error);
+  // if (error.name === 'MongoError') err = mongooseDuplicateError(error);
   if (error.name === 'ValidationError') err = mongooseValidationError(error);
   if (error.name === 'CastError') err = mongooseCastError(error);
 
