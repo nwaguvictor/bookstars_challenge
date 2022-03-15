@@ -19,17 +19,24 @@ class LocationController {
 
   storeLocation = wrapper(async (req: Request, res: Response, next: NextFunction) => {
     const { name, coordinates } = req.body;
-    const location = await Location.create({
+    const result = await Location.create({
       name,
       location: { coordinates: [parseFloat(coordinates[1]), parseFloat(coordinates[0])] },
     });
 
-    res.status(200).json({ success: true, location });
+    res.status(200).json({ success: true, location: result });
   });
 
   updateLocation = wrapper(async (req: LocationRequestBody, res: Response, next: NextFunction) => {
-    const updatedLocation = await Location.findByIdAndUpdate(req.location?._id, req.body, { new: true });
-    res.status(200).json({ success: true, location: updatedLocation });
+    const location = await Location.findById(req.location?._id);
+    if (location) {
+      location.name = req.body.name ?? location.name;
+      location.location!.coordinates = req.body.coordinates ?? location.location?.coordinates;
+
+      await location.save();
+    }
+
+    res.status(200).json({ success: true, location });
   });
 
   deleteLocation = wrapper(async (req: LocationRequestBody, res: Response, next: NextFunction) => {
