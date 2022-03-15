@@ -1,0 +1,42 @@
+[
+  {
+    "_id": "623063bb20dede65cc2e10de",
+    "firstname": "Helen",
+    "lastname": "James",
+    "status": "ACTIVE",
+    "stateOfOrigin": "Abuja",
+    "gender": "FEMALE",
+    "location": "622fd6dd82c737832ca58d4d",
+    "episodes": []
+  },
+  {
+    "_id": "623063e420dede65cc2e10e0",
+    "firstname": "Victor",
+    "lastname": "Nelson",
+    "status": "ACTIVE",
+    "stateOfOrigin": "Enugu",
+    "gender": "MALE",
+    "location": "622fd6dd82c737832ca58d4d",
+    "episodes": []
+  },
+  {
+    "_id": "6230640a20dede65cc2e10e2",
+    "firstname": "Jane",
+    "lastname": "Doe",
+    "status": "ACTIVE",
+    "stateOfOrigin": "Lagos",
+    "gender": "FEMALE",
+    "location": "622fd6fc82c737832ca58d4f",
+    "episodes": []
+  },
+  {
+    "_id": "6230642520dede65cc2e10e4",
+    "firstname": "John",
+    "lastname": "Smith",
+    "status": "ACTIVE",
+    "stateOfOrigin": "Lagos",
+    "gender": "MALE",
+    "location": "622fd6fc82c737832ca58d4f",
+    "episodes": []
+  }
+]

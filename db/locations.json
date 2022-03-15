@@ -1,0 +1,26 @@
+[
+  {
+    "_id": "622fd6dd82c737832ca58d4d",
+    "name": "The castle hotel and resort",
+    "location": {
+      "type": "Point",
+      "coordinates": [6.464295582615206, 7.487434045752007]
+    }
+  },
+  {
+    "_id": "622fd6fc82c737832ca58d4f",
+    "name": "Shop Rite",
+    "location": {
+      "type": "Point",
+      "coordinates": [7.492814516694838, 6.460604101656546]
+    }
+  },
+  {
+    "_id": "622fd70e82c737832ca58d51",
+    "name": "Oakland",
+    "location": {
+      "coordinates": [6.456085183130851, 53.501141436011125],
+      "type": "Point"
+    }
+  }
+]

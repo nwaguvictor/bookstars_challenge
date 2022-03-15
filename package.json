@@ -3,6 +3,12 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "start": "node ./dist/index.js",
+    "dev": "nodemon ./dist/index.js",
+    "compile": "tsc -p .",
+    "compile:watch": "tsc -p . --watch"
+  },
   "devDependencies": {
     "@types/express": "^4.17.13",
     "@types/jest": "^27.4.1",
