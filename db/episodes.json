@@ -1,52 +1,12 @@
-[{
-  "_id": {
-    "$oid": "6230647f20dede65cc2e10e8"
+[
+  {
+    "_id": "6230647f20dede65cc2e10e8",
+    "name": "Arc of Anger",
+    "characters": ["6230640a20dede65cc2e10e2", "6230642520dede65cc2e10e4"]
   },
-  "name": "Arc of Anger",
-  "characters": [
-    {
-      "$oid": "6230640a20dede65cc2e10e2"
-    },
-    {
-      "$oid": "6230642520dede65cc2e10e4"
-    }
-  ],
-  "releaseDate": {
-    "$date": "2022-03-15T10:03:43.344Z"
-  },
-  "episodeCode": "731694",
-  "createdAt": {
-    "$date": "2022-03-15T10:03:43.347Z"
-  },
-  "updatedAt": {
-    "$date": "2022-03-15T10:03:43.347Z"
-  },
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "623064aa20dede65cc2e10ea"
-  },
-  "name": "Revenge",
-  "characters": [
-    {
-      "$oid": "623063bb20dede65cc2e10de"
-    },
-    {
-      "$oid": "6230642520dede65cc2e10e4"
-    },
-    {
-      "$oid": "623063e420dede65cc2e10e0"
-    }
-  ],
-  "releaseDate": {
-    "$date": "2022-03-15T10:04:26.158Z"
-  },
-  "episodeCode": "525323",
-  "createdAt": {
-    "$date": "2022-03-15T10:04:26.160Z"
-  },
-  "updatedAt": {
-    "$date": "2022-03-15T10:04:26.160Z"
-  },
-  "__v": 0
-}]
+  {
+    "_id": "623064aa20dede65cc2e10ea",
+    "name": "Revenge",
+    "characters": ["623063bb20dede65cc2e10de", "6230642520dede65cc2e10e4", "623063e420dede65cc2e10e0"]
+  }
+]
