@@ -7,7 +7,7 @@
 - Run `yarn compile` script to compile the Ts files
 - Run `yarn start` script to start the server
 - Optionally, run `ts-node './db/import.ts` with flag `--import` to seed database
-- Visit `http://localhost:2022/ping` ro test api
+- Visit `http://localhost:2022/ping` to test api
 
 ## Bookstars API Endpoints
 
@@ -62,3 +62,8 @@
   > :comment: ObjectId (comment id)
 - DELETE - `/comments/:comment`
   > :comment: ObjectId (comment id)
+
+### Notes
+
+- You can use any API manager, eg `postman` to test api endpoints or create a frontend using any library of your choice
+- Frontend part was left out. Time factor
