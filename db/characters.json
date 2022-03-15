@@ -1,0 +1,81 @@
+[{
+  "_id": {
+    "$oid": "623063bb20dede65cc2e10de"
+  },
+  "firstname": "Helen",
+  "lastname": "James",
+  "status": "ACTIVE",
+  "stateOfOrigin": "Abuja",
+  "gender": "FEMALE",
+  "location": {
+    "$oid": "622fd6dd82c737832ca58d4d"
+  },
+  "episodes": [],
+  "createdAt": {
+    "$date": "2022-03-15T10:00:27.473Z"
+  },
+  "updatedAt": {
+    "$date": "2022-03-15T10:00:27.473Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "623063e420dede65cc2e10e0"
+  },
+  "firstname": "Victor",
+  "lastname": "Nelson",
+  "status": "ACTIVE",
+  "stateOfOrigin": "Enugu",
+  "gender": "MALE",
+  "location": {
+    "$oid": "622fd6dd82c737832ca58d4d"
+  },
+  "episodes": [],
+  "createdAt": {
+    "$date": "2022-03-15T10:01:08.449Z"
+  },
+  "updatedAt": {
+    "$date": "2022-03-15T10:01:08.449Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6230640a20dede65cc2e10e2"
+  },
+  "firstname": "Jane",
+  "lastname": "Doe",
+  "status": "ACTIVE",
+  "stateOfOrigin": "Lagos",
+  "gender": "FEMALE",
+  "location": {
+    "$oid": "622fd6fc82c737832ca58d4f"
+  },
+  "episodes": [],
+  "createdAt": {
+    "$date": "2022-03-15T10:01:46.607Z"
+  },
+  "updatedAt": {
+    "$date": "2022-03-15T10:01:46.607Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6230642520dede65cc2e10e4"
+  },
+  "firstname": "John",
+  "lastname": "Smith",
+  "status": "ACTIVE",
+  "stateOfOrigin": "Lagos",
+  "gender": "MALE",
+  "location": {
+    "$oid": "622fd6fc82c737832ca58d4f"
+  },
+  "episodes": [],
+  "createdAt": {
+    "$date": "2022-03-15T10:02:13.265Z"
+  },
+  "updatedAt": {
+    "$date": "2022-03-15T10:02:13.265Z"
+  },
+  "__v": 0
+}]
